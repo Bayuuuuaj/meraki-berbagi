@@ -7,12 +7,58 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { HeartHandshake, ArrowRight, Users, Star, ShieldCheck, Instagram, Music, Sparkles, CheckCircle2, MessageCircle } from "lucide-react";
+import { HeartHandshake, ArrowRight, Users, Star, ShieldCheck, Instagram, Music, Sparkles, CheckCircle2, MessageCircle, ChevronRight, X } from "lucide-react";
 import logoImage from "@assets/Kebutuhan_logo-04_1765812559569.png";
+
+type ProgramData = {
+  id: string;
+  title: string;
+  description: string;
+  icon: any;
+  color: string;
+  bgColor: string;
+  images: string[];
+  longDescription: string;
+};
+
+const PROGRAMS: ProgramData[] = [
+  {
+    id: "meraki-mengajar",
+    title: "Meraki Mengajar",
+    description: "Memberikan akses pendidikan yang berkualitas dan berkelanjutan bagi anak-anak yang membutuhkan.",
+    icon: Users,
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
+    images: ["/doc-2.jpg", "/doc-4.jpg"],
+    longDescription: "Program Meraki Mengajar berfokus pada pemerataan pendidikan. Kami mengirimkan relawan pengajar ke daerah-daerah yang membutuhkan, mengadakan kelas inspirasi, serta memberikan bantuan perlengkapan sekolah untuk memastikan setiap anak mendapatkan hak belajarnya."
+  },
+  {
+    id: "meraki-kasih",
+    title: "Meraki Kasih",
+    description: "Berbagi kasih sayang dan kepedulian kepada sesama melalui berbagai kegiatan sosial yang bermakna.",
+    icon: HeartHandshake,
+    color: "text-rose-600",
+    bgColor: "bg-rose-100",
+    images: ["/doc-1.jpg", "/doc-3.jpg"],
+    longDescription: "Meraki Kasih adalah wujud kepedulian sosial kami. Kegiatannya meliputi kunjungan ke panti asuhan, panti jompo, berbagi makanan (Jumat Berkah), dan kegiatan hiburan untuk menguatkan mental serta emosional saudara-saudara kita."
+  },
+  {
+    id: "satu-hati",
+    title: "Satu Hati, Satu Tangan",
+    description: "Program bantuan darurat kemanusiaan untuk membantu mereka yang sedang terdampak.",
+    icon: ShieldCheck,
+    color: "text-amber-600",
+    bgColor: "bg-amber-100",
+    images: ["/doc-5.jpg", "/meraki-volunteers.jpg"],
+    longDescription: "Satu Hati, Satu Tangan adalah respon cepat tanggap kami terhadap bencana alam dan krisis kemanusiaan. Kami menggalang dana, menyalurkan logistik, dan menurunkan tim relawan untuk membantu pemulihan daerah terdampak."
+  }
+];
 
 export default function LandingPage() {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState<ProgramData | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -159,29 +205,23 @@ export default function LandingPage() {
              </div>
 
              <div className="grid md:grid-cols-3 gap-8">
-                <div className="group bg-card p-8 rounded-2xl shadow-md border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                   <div className="h-14 w-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-7 h-7" />
-                   </div>
-                   <h3 className="text-2xl font-bold mb-3 text-foreground">Meraki Mengajar</h3>
-                   <p className="text-muted-foreground leading-relaxed">Memberikan akses pendidikan yang berkualitas dan berkelanjutan bagi anak-anak yang membutuhkan.</p>
-                </div>
-                
-                <div className="group bg-card p-8 rounded-2xl shadow-md border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                   <div className="h-14 w-14 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <HeartHandshake className="w-7 h-7" />
-                   </div>
-                   <h3 className="text-2xl font-bold mb-3 text-foreground">Meraki Kasih</h3>
-                   <p className="text-muted-foreground leading-relaxed">Berbagi kasih sayang dan kepedulian kepada sesama melalui berbagai kegiatan sosial yang bermakna.</p>
-                </div>
-
-                <div className="group bg-card p-8 rounded-2xl shadow-md border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                   <div className="h-14 w-14 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <ShieldCheck className="w-7 h-7" />
-                   </div>
-                   <h3 className="text-2xl font-bold mb-3 text-foreground">Satu Hati, Satu Tangan</h3>
-                   <p className="text-muted-foreground leading-relaxed">Program bantuan darurat kemanusiaan untuk membantu mereka yang sedang terdampak.</p>
-                </div>
+                {PROGRAMS.map((program) => (
+                  <div key={program.id} className="group bg-card p-8 rounded-2xl shadow-md border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                     <div className={`h-14 w-14 ${program.bgColor} ${program.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                        <program.icon className="w-7 h-7" />
+                     </div>
+                     <h3 className="text-2xl font-bold mb-3 text-foreground">{program.title}</h3>
+                     <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">{program.description}</p>
+                     
+                     <Button 
+                       variant="ghost" 
+                       className="self-start p-0 h-auto font-semibold text-primary hover:bg-transparent hover:text-primary/80 group-hover:translate-x-1 transition-transform"
+                       onClick={() => setSelectedProgram(program)}
+                     >
+                       Pelajari Lebih Lanjut <ChevronRight className="w-4 h-4 ml-1" />
+                     </Button>
+                  </div>
+                ))}
              </div>
           </div>
         </section>
@@ -348,6 +388,53 @@ export default function LandingPage() {
               </div>
             </a>
           </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Program Detail Dialog */}
+      <Dialog open={!!selectedProgram} onOpenChange={(open) => !open && setSelectedProgram(null)}>
+        <DialogContent className="sm:max-w-[800px] p-0 overflow-hidden">
+           {selectedProgram && (
+             <>
+               <div className={`p-6 ${selectedProgram.bgColor} flex items-center gap-4`}>
+                 <div className={`h-16 w-16 bg-white rounded-2xl flex items-center justify-center shadow-sm ${selectedProgram.color}`}>
+                   <selectedProgram.icon className="w-8 h-8" />
+                 </div>
+                 <div>
+                   <h2 className="text-2xl font-bold font-heading">{selectedProgram.title}</h2>
+                   <p className="text-muted-foreground/80 font-medium">Dokumentasi & Detail Program</p>
+                 </div>
+               </div>
+               
+               <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
+                 <div>
+                   <h3 className="font-semibold text-lg mb-2">Tentang Program</h3>
+                   <p className="text-muted-foreground leading-relaxed">
+                     {selectedProgram.longDescription}
+                   </p>
+                 </div>
+
+                 <div>
+                   <h3 className="font-semibold text-lg mb-4">Galeri Dokumentasi</h3>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     {selectedProgram.images.map((img, idx) => (
+                       <div key={idx} className="rounded-xl overflow-hidden shadow-sm border border-border">
+                         <img 
+                           src={img} 
+                           alt={`${selectedProgram.title} Documentation ${idx + 1}`} 
+                           className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                         />
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+               </div>
+               
+               <div className="p-4 border-t border-border bg-muted/20 flex justify-end">
+                 <Button onClick={() => setSelectedProgram(null)}>Tutup</Button>
+               </div>
+             </>
+           )}
         </DialogContent>
       </Dialog>
     </div>
