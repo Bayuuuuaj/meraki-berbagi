@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { HeartHandshake, ArrowRight, Users, Star, ShieldCheck, Instagram, Music, Sparkles, CheckCircle2, MessageCircle } from "lucide-react";
-import logoImage from "@assets/generated_images/meraki_berbagi_logo.png";
+import logoImage from "@assets/Kebutuhan_logo-04_1765812559569.png";
 
 export default function LandingPage() {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);

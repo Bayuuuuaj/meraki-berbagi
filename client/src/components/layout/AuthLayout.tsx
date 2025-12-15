@@ -1,5 +1,5 @@
 import { HeartHandshake } from "lucide-react";
-import logoImage from "@assets/generated_images/meraki_berbagi_logo.png";
+import logoImage from "@assets/Kebutuhan_logo-04_1765812559569.png";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
