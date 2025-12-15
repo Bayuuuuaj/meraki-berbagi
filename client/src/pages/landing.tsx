@@ -173,7 +173,7 @@ export default function LandingPage() {
                     <h3 className="text-xl font-bold flex items-center gap-2">
                       <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" /> Visi Kami
                     </h3>
-                    <p className="text-sm text-muted-foreground italic border-l-4 border-primary/20 pl-4">
+                    <p className="text-lg text-muted-foreground leading-relaxed border-l-4 border-primary/20 pl-4">
                       "Menjadi cahaya harapan bagi sesama, menginspirasi kepedulian dan aksi nyata untuk menciptakan peningkatan diri yang lebih adil, berdaya, dan penuh kasih dengan semangat muka rasa cipta."
                     </p>
                   </div>
@@ -182,7 +182,7 @@ export default function LandingPage() {
                     <h3 className="text-xl font-bold flex items-center gap-2">
                       <HeartHandshake className="w-5 h-5 text-rose-500 fill-rose-500" /> Misi Kami
                     </h3>
-                    <ul className="text-sm text-muted-foreground space-y-2 list-decimal list-outside ml-4">
+                    <ul className="text-lg text-muted-foreground leading-relaxed space-y-2 list-decimal list-outside ml-4">
                       <li>Membangun kekuatan dengan memberikan kesempatan dan sumber daya yang membuka jalan bagi kehidupan yang lebih baik.</li>
                       <li>Menjadi tangan yang membantu dengan memberikan bantuan kemanusiaan yang tepat bagi mereka yang sedang membutuhkan.</li>
                       <li>Memberikan akses pendidikan yang setara dan berkualitas bagi anak-anak dan keluarga yang kurang beruntung, untuk membuka peluang masa depan yang lebih cerah.</li>
