@@ -10,7 +10,7 @@ import {
   Menu,
   Bell
 } from "lucide-react";
-import logoImage from "@assets/IMG_1120_1764437147221.PNG";
+import logoImage from "@assets/generated_images/meraki_berbagi_logo.png";
 import {
   Sidebar,
   SidebarContent,

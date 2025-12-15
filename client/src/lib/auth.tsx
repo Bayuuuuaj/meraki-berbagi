@@ -7,6 +7,7 @@ export type User = {
   email: string;
   name: string;
   role: "admin" | "anggota";
+  avatar?: string;
 };
 
 type AuthContextType = {

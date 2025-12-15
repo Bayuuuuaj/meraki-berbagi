@@ -30,7 +30,7 @@ import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import { Plus, Wallet, Download, Lock, Loader2, Upload, Trash2, AlertTriangle, Eye, X } from "lucide-react";
-import qrisImage from "@assets/WhatsApp Image 2025-12-01 at 01.32.58_1764527633988.jpeg";
+import qrisImage from "@assets/generated_images/qr_code_placeholder.png";
 
 const treasurySchema = z.object({
   date: z.string(),
