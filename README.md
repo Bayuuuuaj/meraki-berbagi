@@ -337,7 +337,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Bayu**
 - GitHub: [@Bayuuuuaj](https://github.com/Bayuuuuaj)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- LinkedIn: [Bayu AjieJulian](www.linkedin.com/in/bayu-ajiejulian-55760a2a7)
 
 ---
 
